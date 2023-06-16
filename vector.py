@@ -8,6 +8,12 @@ def norma(x: list[float]) -> float | None:
     # a norma de um vetor [1, 2, 4] é 4.58257569495584
     # ela consiste em calcular a raiz quadrada da soma dos quadrados dos elementos do vetor
     # se o vetor estiver vazio retorne None
+    if len(x) == 0:
+        return None
+    soma = 0
+    for elemento in x:
+        soma += elemento ** 2
+    return soma ** 0.5
 
 
 def soma(x: list[float], y: list[float]) -> list[float] | None:
@@ -16,12 +22,22 @@ def soma(x: list[float], y: list[float]) -> list[float] | None:
     # a soma de dois vetores [1, 2, 4] + [2, 3, 4] é [3, 5, 8]
     # a soma só pode ser realizada se os vetores tem a mesma quantidade de elementos.
     # caso contrário, deve retornar None
+    if len(x) == len(y):
+        soma = []
+        for i in range(0, len(x)):
+            soma.append(x[i] + y[i])
+        return soma
+    return None
 
 
 def multiplicação_por_escalar(vetor: list[float], escalar: float) -> list[float]:
     """Multiplica um vetor por um escalar"""
     # TODO: implementar
     # a multiplicação de um vetor [1, 2, 4] por um escalar 2 é [2, 4, 8]
+    mult = []
+    for i in vetor:
+        mult.append(i * escalar)
+    return mult
 
 
 def produto_interno(x: list[float], y: list[float]) -> float | None:
@@ -32,6 +48,12 @@ def produto_interno(x: list[float], y: list[float]) -> float | None:
     # a multiplicação só pode ser realizada se os vetores tem a mesma quantidade de elementos.
     # caso contrário, deve retornar None
     # caso os vetores sejam vazios o resultado é 0
+    if len(x) == len(y):
+        soma = 0
+        for i in range(0, len(x)):
+            soma += x[i] * y[i]
+        return soma
+    return None
 
 
 def produto_vetorial(x: list[float], y: list[float]) -> list[float] | None:
@@ -40,6 +62,11 @@ def produto_vetorial(x: list[float], y: list[float]) -> list[float] | None:
     # o produto vetorial de dois vetores [1, 2, 4] e [2, 3, 4] é [-4, 4, -1]
     # o produto vetorial só pode ser realizado se os vetores tem 3 elementos.
     # caso contrário, deve retornar None
+    if len(x) == 3 and len(y) == 3:
+        vetor = [x[1] * y[2] - x[2] * y[1], x[2] * y[0] - x[0] * y[2], x[0] * y[1] - x[1] * y[0]]
+        return vetor
+    return None
+
 
 
 def produto_diádico(x: list[float], y: list[float]) -> list[list[float]] | None:
@@ -48,3 +75,12 @@ def produto_diádico(x: list[float], y: list[float]) -> list[list[float]] | None
     # o produto diádico de dois vetores [1, 2, 4] e [2, 3, 4] é [[2, 3, 4], [4, 6, 8], [8, 12, 16]]
     # o produto diádico só pode ser realizado se os vetores tem a mesma quantidade de elementos.
     # caso contrário, deve retornar None
+    if len(x) == len(y):
+        resultado = []
+        for i in range(len(x)):
+            linha_res = []
+            for j in range(len(y)):
+                linha_res.append(x[i] * y[j])
+            resultado.append(linha_res)
+        return resultado
+    return None

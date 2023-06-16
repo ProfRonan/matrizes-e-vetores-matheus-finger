@@ -7,6 +7,11 @@ def soma(x: list[list[float]], y: list[list[float]]) -> list[list[float]] | None
     # a soma de duas matrizes [[1, 2, 4], [2, 3, 4]] + [[2, 3, 4], [1, 2, 4]] é [[3, 5, 8], [3, 5, 8]]
     # a soma só pode ser realizada se as matrizes tem a mesma quantidade de linhas e colunas.
     # caso contrário, deve retornar None
+    if len(x) == 0 or len(y) == 0:
+        if len(x) == 0 and len(y) == 0:
+            return []
+        else:
+            return None
     if len(x) == len(y) and len(x[0]) == len(y[0]):
         soma = []
         for i in range(0, len(x)):
@@ -38,15 +43,17 @@ def multiplicação(x: list[list[float]], y: list[list[float]]) -> list[list[flo
     # a multiplicação de duas matrizes [[1, 2, 4], [2, 3, 4]] por [[2, 3, 4], [1, 2, 4]] é [[10, 17, 28], [12, 20, 32]]
     # a multiplicação só pode ser realizada se a quantidade de colunas da primeira matriz é igual a quantidade de linhas da segunda matriz.
     # caso contrário, deve retornar None
-    if len(x) == len(y):
-        mult = []
+    mult = []
+    if len(x) == 0 and len(y) == 0:
+        return mult
+    if len(x[0]) == len(y):
         # percorrendo as linhas da matriz x
-        for k in range(0, len(x[0])):
+        for k in range(0, len(x)):
             linha_mult = []
             # percorrendo colunas da matrix y
-            for l in range(0, len(y)):
+            for l in range(0, len(y[0])):
                 soma = 0
-                # percorrendo colunas de x e linhas de y ao mesmo tempo
+                # percorrendo colunas de x e as linhas de y
                 for m in range(0, len(y)):
                     soma += x[k][m] * y[m][l]
                 linha_mult.append(soma)
@@ -75,9 +82,30 @@ def é_simétrica(x: list[list[float]]) -> bool:
     # TODO: implementar
     # uma matriz é simétrica se ela é quadrada e se ela é igual a sua transposta
     # a transposta de uma matriz é a matriz que tem as linhas da matriz original como colunas e as colunas da matriz original como linhas
+    if len(x) == 0:
+        return True
+    if len(x) == len(x[0]):
+        transposta = []
+        for coluna in range(0, len(x[0])):
+            linha_trans = []
+            for linha in range(0, len(x)):
+                linha_trans.append(x[linha][coluna])
+            transposta.append(linha_trans)
+        if x == transposta:
+            return True
+    return False
 
 
 def transposta(x: list[list[float]]) -> list[list[float]]:
     """Calcula a transposta de uma matriz"""
     # TODO: implementar
     # a transposta de uma matriz [[1, 2, 4], [2, 3, 4]] é [[1, 2], [2, 3], [4, 4]]
+    if len(x) == 0:
+        return []
+    transposta = []
+    for coluna in range(0, len(x[0])):
+        linha_trans = []
+        for linha in range(0, len(x)):
+            linha_trans.append(x[linha][coluna])
+        transposta.append(linha_trans)
+    return transposta
