@@ -7,7 +7,7 @@ from vector import multiplicacao_por_escalar as multi
 
 
 class TestVectorMultiplicacaoPorEscalar(unittest.TestCase):
-    """Classe para testar a função multiplicação_por_escalar no arquivo vector.py"""
+    """Classe para testar a função multiplicacao_por_escalar no arquivo vector.py"""
 
     def test_multiplicacao_por_escalar_vazia(self):
         """Testa se a resposta é vazia para vetores vazios"""

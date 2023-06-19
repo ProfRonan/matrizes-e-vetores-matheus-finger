@@ -7,7 +7,7 @@ from vector import produto_diadico as prod
 
 
 class TestVectorProdutoDiadico(unittest.TestCase):
-    """Classer para testar a função produto_diádico no arquivo vector.py"""
+    """Classer para testar a função produto_diadico no arquivo vector.py"""
 
     def test_produto_diadico_vazio(self):
         """Testa se a resposta é vazia para vetores vazios"""

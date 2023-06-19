@@ -7,7 +7,7 @@ from tipos import Matriz
 
 
 class TestMatrixEhSimetrica(unittest.TestCase):
-    """Classe para testar a função é_simétrica no arquivo matrix.py"""
+    """Classe para testar a função e_simetrica no arquivo matrix.py"""
 
     def test_eh_simetrica_vazia(self):
         """Testa se a resposta é True para matrizes vazias"""
