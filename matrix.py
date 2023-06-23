@@ -76,7 +76,7 @@ def norma(x: Matriz) -> float:
     return norma_result**0.5
 
 
-def e_simetrica(x: Matriz) -> bool:
+def eh_simetrica(x: Matriz) -> bool:
     """Verifica se uma matriz é simétrica"""
     # TODO: implementar
     # uma matriz é simétrica se ela é quadrada e se ela é igual a sua transposta
